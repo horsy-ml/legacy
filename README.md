@@ -1,6 +1,7 @@
 # [🎠horsy](https://horsy.ml/) [![logo](https://raw.githubusercontent.com/horsy-ml/horsy/master/img/horsy32x32.png)](https://horsy.ml/)
 
-## _The Best Open Source Package Manager_
+## _The Best Open Source Package Manager - Legacy_
+## [Get horsy acryl](https://github.com/horsy-ml/horsy)
 
 horsy in Python-powered multi launcher and app installer
 
