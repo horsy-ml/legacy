@@ -46,7 +46,7 @@ except:
     print('Horsy may be not installed correctly. Please reinstall it or stop other horsy instances. '
           'If you installed it just now, please restart PC.')
 
-if int(request.get('https://github.com/horsy-ml/horsy/raw/master/web_vars/version').text) > version:
+if int(request.get('https://github.com/horsy-ml/legacy/raw/master/web_vars/version').text) > version:
     from ezzdl.download import dl
     import urllib.request
     print('New version available!')
@@ -55,12 +55,12 @@ if int(request.get('https://github.com/horsy-ml/horsy/raw/master/web_vars/versio
     print('Please wait...')
     os.rename(horsy_vars.horsypath + "horsy.exe", horsy_vars.horsypath + "horsy.old")
     print('Renamed horsy.exe to horsy.old')
-    dl(['https://github.com/horsy-ml/horsy/raw/master/bin/horsy.exe',
-        'https://github.com/horsy-ml/horsy/raw/master/bin/horsygui.exe']
+    dl(['https://github.com/horsy-ml/legacy/raw/master/bin/horsy.exe',
+        'https://github.com/horsy-ml/legacy/raw/master/bin/horsygui.exe']
        if os.path.isfile(horsy_vars.horsypath + 'horsygui.exe') else
-       ['https://github.com/horsy-ml/horsy/raw/master/bin/horsy.exe'],
+       ['https://github.com/horsy-ml/legacy/raw/master/bin/horsy.exe'],
        horsy_vars.horsypath)
-    urllib.request.urlretrieve("https://github.com/horsy-ml/horsy/raw/master/web_vars/version",
+    urllib.request.urlretrieve("https://github.com/horsy-ml/legacy/raw/master/web_vars/version",
                                horsy_vars.horsypath + '/apps/version')
     subprocess.Popen(str(horsy_vars.horsypath + 'horsy.exe'), shell=True, close_fds=True)
     sys.exit(0)
@@ -73,14 +73,15 @@ isNoArgs = False
 def log_logo():
     cls()
     print('''
- __   __  _______  ______    _______  __   __ 
-|  | |  ||       ||    _ |  |       ||  | |  |
-|  |_|  ||   _   ||   | ||  |  _____||  |_|  |
-|       ||  | |  ||   |_||_ | |_____ |       |
-|       ||  |_|  ||    __  ||_____  ||_     _|
-|   _   ||       ||   |  | | _____| |  |   |  
-|__| |__||_______||___|  |_||_______|  |___|  
-        Search powered by Algolia
+ ___      _______  _______  _______  _______  __   __ 
+|   |    |       ||       ||   _   ||       ||  | |  |
+|   |    |    ___||    ___||  |_|  ||       ||  |_|  |
+|   |    |   |___ |   | __ |       ||       ||       |
+|   |___ |    ___||   ||  ||       ||      _||_     _|
+|       ||   |___ |   |_| ||   _   ||     |_   |   |  
+|_______||_______||_______||__| |__||_______|  |___|  
+             Search powered by Algolia
+        Get the latest acryl version at horsy.ml
     ''')
 
 

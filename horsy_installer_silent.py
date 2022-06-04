@@ -28,11 +28,11 @@ def install():
     threads = list()
     print("Adding task to download horsy")
     threads.append(threading.Thread(target=urllib.request.urlretrieve,
-                                    args=("https://github.com/horsy-ml/horsy/raw/master/bin/horsy.exe",
+                                    args=("https://github.com/horsy-ml/legacy/raw/master/bin/horsy.exe",
                                           os.path.join(path_to_install) + '/horsy.exe'), ))
     print("Adding task to download horsygui")
     threads.append(threading.Thread(target=urllib.request.urlretrieve,
-                                    args=("https://github.com/horsy-ml/horsy/raw/master/bin/horsygui.exe",
+                                    args=("https://github.com/horsy-ml/legacy/raw/master/bin/horsygui.exe",
                                           os.path.join(path_to_install) + '/horsygui.exe'), ))
     try:
         print("Starting tasks")
@@ -46,7 +46,7 @@ def install():
     add_var(path_to_install)
     add_to_path(os.path.join(path_to_install))
     print("Downloading version file")
-    urllib.request.urlretrieve("https://github.com/horsy-ml/horsy/raw/master/web_vars/version",
+    urllib.request.urlretrieve("https://github.com/horsy-ml/legacy/raw/master/web_vars/version",
                                os.path.join(path_to_install) + '/apps/version')
     print("Version specified")
 
@@ -56,7 +56,7 @@ def install():
         print("Downloading finished")
         print("Creating shortcuts")
         desktop = winshell.desktop()
-        path = os.path.join(desktop, "horsy GUI.lnk")
+        path = os.path.join(desktop, "horsy legacy GUI.lnk")
         target = os.path.join(path_to_install) + '/horsygui.exe'
         wDir = os.path.join(path_to_install)
         icon = os.path.join(path_to_install) + '/horsygui.exe'

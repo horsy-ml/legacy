@@ -67,7 +67,7 @@ class Ui_MainWindow(object):
         self.horsy_text_lefttop = QtWidgets.QLabel(self.centralwidget)
         self.horsy_text_lefttop.setGeometry(QtCore.QRect(50, 10, 231, 30))
         self.horsy_text_lefttop.setStyleSheet("color: white;\n"
-                                              "font: 20pt \"MS Shell Dlg 2\";\n"
+                                              "font: 18pt \"MS Shell Dlg 2\";\n"
                                               "background: none;")
         self.horsy_text_lefttop.setObjectName("horsy_text_lefttop")
         self.path_message = QtWidgets.QTextBrowser(self.centralwidget)
@@ -135,10 +135,10 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "horsy - installation"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "horsy legacy - installation"))
         self.path_box.setPlaceholderText(_translate("MainWindow", "Installation folder, apps will be stored here"))
         self.choose_path_button.setText(_translate("MainWindow", "Choose path"))
-        self.horsy_text_lefttop.setText(_translate("MainWindow", "horsy - installation"))
+        self.horsy_text_lefttop.setText(_translate("MainWindow", "hlegacy - installation"))
         self.path_message.setHtml(_translate("MainWindow",
                                              "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
                                              "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
@@ -185,12 +185,12 @@ def install():
     threads = list()
     ui.logs_box.append("Adding task to download horsy")
     threads.append(threading.Thread(target=urllib.request.urlretrieve,
-                                    args=("https://github.com/horsy-ml/horsy/raw/master/bin/horsy.exe",
+                                    args=("https://github.com/horsy-ml/legacy/raw/master/bin/horsy.exe",
                                           os.path.join(path_to_install) + '/horsy.exe'), ))
     if ui.install_gui_check.isChecked():
         ui.logs_box.append("Adding task to download horsygui")
         threads.append(threading.Thread(target=urllib.request.urlretrieve,
-                                        args=("https://github.com/horsy-ml/horsy/raw/master/bin/horsygui.exe",
+                                        args=("https://github.com/horsy-ml/legacy/raw/master/bin/horsygui.exe",
                                               os.path.join(path_to_install) + '/horsygui.exe'), ))
     try:
         ui.logs_box.append("Starting tasks")
@@ -204,7 +204,7 @@ def install():
     add_var(path_to_install)
     add_to_path(os.path.join(path_to_install))
     ui.logs_box.append("Downloading version file")
-    urllib.request.urlretrieve("https://github.com/horsy-ml/horsy/raw/master/web_vars/version",
+    urllib.request.urlretrieve("https://github.com/horsy-ml/legacy/raw/master/web_vars/version",
                                os.path.join(path_to_install) + '/apps/version')
     ui.logs_box.append("Version specified")
 
@@ -215,7 +215,7 @@ def install():
         if ui.install_gui_check.isChecked():
             ui.logs_box.append("Creating shortcuts")
             desktop = winshell.desktop()
-            path = os.path.join(desktop, "horsy GUI.lnk")
+            path = os.path.join(desktop, "horsy legacy GUI.lnk")
             target = os.path.join(path_to_install) + '/horsygui.exe'
             wDir = os.path.join(path_to_install)
             icon = os.path.join(path_to_install) + '/horsygui.exe'

@@ -388,7 +388,7 @@ class Ui_MainWindow(object):
         self.horsy_text_lefttop = QtWidgets.QLabel(self.centralwidget)
         self.horsy_text_lefttop.setGeometry(QtCore.QRect(70, 10, 65, 30))
         self.horsy_text_lefttop.setStyleSheet("color: white;\n"
-                                              "font: 20pt \"MS Shell Dlg 2\";\n"
+                                              "font: 17pt \"MS Shell Dlg 2\";\n"
                                               "background: none;")
         self.horsy_text_lefttop.setObjectName("horsy_text_lefttop")
         self.tabWidget.raise_()
@@ -403,7 +403,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "horsy"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "horsy legacy"))
         self.loginlogout_button.setText(_translate("MainWindow", "Log in/Log out"))
         self.username_box.setPlaceholderText(_translate("MainWindow", "Log in first"))
         self.changeemail_button.setText(_translate("MainWindow", "Change e-mail"))
@@ -479,7 +479,7 @@ class Ui_MainWindow(object):
         self.installed_table.setSortingEnabled(False)
         self.installed_table.setSortingEnabled(__sortingEnabled)
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.installed_tab), _translate("MainWindow", "Installed"))
-        self.horsy_text_lefttop.setText(_translate("MainWindow", "horsy"))
+        self.horsy_text_lefttop.setText(_translate("MainWindow", "legacy"))
 
 
 class Ui_LoginWindow(object):
